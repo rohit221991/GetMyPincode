@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="E:\app\android_app\project\GetMyPincode\app\build\intermediates\pre-dexed\debug\classes-61d5b695f18822839eb878f64427a30b09b8c719.jar"
+        jar="E:\app\android_app\project\GetMyPincode\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
+        dex="E:\app\android_app\project\GetMyPincode\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-6d46abda6d0d844e8982e9ab48ccabbd2e74cec3.jar"
+        jar="G:\softwares\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+
+</pre-dex-items>
