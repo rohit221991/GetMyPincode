@@ -3,7 +3,11 @@ package in.getty.getty;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.location.Address;
+import android.location.Criteria;
 import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -98,12 +102,43 @@ public class PincodeFragment extends Fragment {
     }
 
 
-    private class GetCurrentAddress extends AsyncTask< String, String, String> {
+    private class GetCurrentAddress extends AsyncTask< String, String, String> implements LocationListener {
+        String provider;
+        @Override
+        public void onLocationChanged(Location location) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+            Log.d("Latitude","disable");
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+            Log.d("Latitude","enable");
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            Log.d("Latitude","status");
+        }
 
         @Override
         protected String doInBackground(String... urls) {
+           LocationManager locationManager;
+             LocationListener locationListener;
+            locationManager = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE);;
+            Criteria c=new Criteria();
+            provider=locationManager.getBestProvider(c, false);
+            Location location = locationManager.getLastKnownLocation(provider);
+
             double latitude=12.916523125961666;
             double longitude=77.61959824603072;
+            if(location!=null){
+                latitude = location.getLatitude();
+                longitude= location.getLongitude();
+            }
             String pincode= getPincode(context, latitude, longitude);
             return pincode;
         }
@@ -123,5 +158,8 @@ public class PincodeFragment extends Fragment {
 
             Log.d("Pincode ", resultString);
         }
+
+
+
     }
 }
